@@ -22,6 +22,7 @@ This starts an interactive wizard that lets you:
 | `write-a-skill` | Create new agent skills with proper structure and progressive disclosure |
 | `first-mate` | Captain-facing coordination, bounded crews, delivery authority, AXI initialization, and evidence-based handoff |
 | `chrome-devtools-axi` | Real Chrome navigation, interaction, console/network inspection, screenshots, and performance checks |
+| `commandcode-design` | Harness-neutral frontend design partner with Command Code-style audit, composition, state, and refinement modes |
 | `wayfinder` | Map large work into decisions, tickets, dependencies, and an explicit delivery handoff |
 | `to-spec` | Synthesize a conversation into a tracker-ready specification |
 | `to-tickets` | Turn a spec into vertical tracer-bullet tickets with blocking edges |
@@ -41,7 +42,7 @@ For a large change, use the skills in this order:
 $wayfinder → $to-spec → $to-tickets → $implement → $code-review
 ```
 
-`$wayfinder` remains planning-first. `$implement` and `$code-review` are the explicit execution and verification boundary. See `skills-manifest.json` for the portable bundle and its dependency notes. The copied `first-mate` is the Alpha Jiu Jitsu profile; adapt its project-specific references before using it as a generic skill.
+`$wayfinder` remains planning-first. `$implement` and `$code-review` are the explicit execution and verification boundary. See `skills-manifest.json` for the portable bundle and its dependency notes. The copied `first-mate` is now harness-neutral; adapt only repository-specific profiles and companion packages.
 
 ## Manual Install
 

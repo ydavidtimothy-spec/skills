@@ -2,17 +2,17 @@
 
 ## Choose the smallest useful crew
 
-Use no crew for a linear task that the captain can finish quickly. Use two or three agents when investigation, implementation, tests, design review, or security review can proceed on disjoint surfaces. More agents add coordination cost and should correspond to genuinely independent work.
+Use no crew only for prompt-only/planning work or when the captain explicitly authorizes `captain takeover`. For Ship and Verify work, use two or more agents whenever investigation, implementation, tests, design review, or security review can proceed on disjoint surfaces. More agents add coordination cost, so each one must correspond to a genuinely independent work package.
 
 ## Preferred wave structure
 
 ### Wave 0 — Reconnaissance
 
-The captain reads authority, code, tests, state, and user artifacts. Delegate narrowly scoped discovery only when it is independent; never delegate interpretation of skill instructions.
+The First Mate reads authority, mission contract, repository state, and user artifacts. Delegate source-code, test, deployment, and browser discovery immediately; never delegate interpretation of skill instructions or the captain’s contract.
 
 ### Wave 1 — Contracts and failing tests
 
-Define interfaces and write tests at stable seams. The captain owns interfaces shared by multiple agents.
+Have a contract/scout agent define proposed interfaces and a ship agent write tests at stable seams. A named integration agent owns interfaces shared by multiple agents; the First Mate routes decisions and does not edit them.
 
 ### Wave 2 — Disjoint implementation
 
@@ -20,7 +20,7 @@ Assign separate file ownership. Require each crew member to report changed files
 
 ### Wave 3 — Integration
 
-The captain inspects every diff, resolves conflicts, removes duplication, checks architecture, and runs focused tests.
+An integration agent inspects every diff, resolves conflicts, removes duplication, checks architecture, and runs focused tests. A separate verification agent runs the independent gates and adversarial review. The First Mate reconciles their reports and does not edit project files.
 
 ### Wave 4 — Adversarial verification
 
@@ -38,7 +38,9 @@ Record ownership before spawning agents:
 | ------- | -------------------------- | --------------------- | ------------- | ----------------- |
 | A       | Bounded outcome            | Exact paths           | Shared paths  | Focused tests     |
 | B       | Bounded outcome            | Exact paths           | Shared paths  | Focused tests     |
-| Captain | Interfaces and integration | Shared paths          | —             | Full gates        |
+| Integration agent | Shared interfaces and integration | Shared paths | Unrelated files | Focused tests and diff |
+| Verification agent | Gates and adversarial review | Test/evidence surface | Runtime implementation | Full gates and report |
+| First Mate | Routing, authority, handoffs | None | All project files | Reconciled outcome |
 
 ## Handoff format
 
@@ -55,6 +57,7 @@ Require each crew report to contain:
 ## Failure handling
 
 - If an agent goes stale, inspect the filesystem and task status before restarting work.
+- If an agent fails, times out, or returns no usable handoff, replace/retry it or report the blocker; the First Mate must not resume that implementation itself.
 - If two agents touched the same file, pause one and integrate centrally.
 - If a test is flaky, reproduce it; do not skip a critical path to make the suite green.
 - If a hosted mutation lacks migration parity, treat it as a blocker for production readiness.

@@ -16,8 +16,7 @@
   "skills": {
     "first-mate": {
       "kind": "coordination",
-      "portable": false,
-      "profile": "alpha-jiujitsu",
+      "portable": true,
       "dependencies": ["chrome-devtools-axi", "gh-axi"]
     },
     "chrome-devtools-axi": {
@@ -25,6 +24,12 @@
       "portable": true,
       "runtime": "npx -y chrome-devtools-axi <command>",
       "source": "kunchenguid/chrome-devtools-axi"
+    },
+    "commandcode-design": {
+      "kind": "design",
+      "portable": true,
+      "source": "original adaptation of Command Code's public design workflow",
+      "notes": "Does not redistribute Command Code's bundled UNLICENSED design skill."
     },
     "wayfinder": {
       "kind": "planning",

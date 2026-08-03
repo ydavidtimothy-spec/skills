@@ -1,6 +1,6 @@
-# AXI Tooling Reference
+# Harness and AXI Tooling Reference
 
-This reference is for the Alpha Jiu Jitsu First Mate adaptation. Tool names and flags can change; check current help before relying on a command.
+This reference is harness-neutral. Tool names and flags can change; check current help before relying on a command. The active harness may be Pi/Oh My Pi, Oh My CLI, OpenCode, AG, Codex, Qwen CLI, Cursor, Grok/Grok Build, Claude, Hermes, or another agent surface.
 
 ## Discovery
 
@@ -17,7 +17,7 @@ POSIX shells:
 command -v gh-axi lavish-axi chrome-devtools-axi codex vercel supabase || true
 ```
 
-There is no universal `axi init`. Missing tools are reported and installed only with the captain’s approval.
+There is no universal `axi init`, harness start command, or hook format. Missing tools are reported and installed only with the captain’s approval. If the current harness exposes a native subagent/delegation command, use it; if it does not, stop before doing crew-owned project work.
 
 ## gh-axi
 
@@ -56,7 +56,7 @@ Use `lavish-axi poll` only when the mission expects human/browser feedback; leav
 
 ## Chrome/browser AXI
 
-This project includes the local skill at `.agents/skills/chrome-devtools-axi/SKILL.md`. Read it before browser work and invoke the CLI on demand:
+When the local Chrome AXI skill is present at `.agents/skills/chrome-devtools-axi/SKILL.md`, read it before browser work and invoke the CLI on demand:
 
 ```bash
 npx -y chrome-devtools-axi --help
@@ -71,7 +71,8 @@ No global installation is required. Use the configured Chrome control/browser co
 
 - `vercel`: deployment inspection; report READY/Error and Preview/Production distinctly.
 - `supabase`: database inspection/mutation; hosted writes need explicit authority and migration/test coverage.
-- `codex`: independent review or bounded crew harness; pin model/config when requested and record unavailable configuration honestly.
+- Active harness: native subagent/delegation mechanism; record its name, isolation model, and limitations.
+- Independent reviewer harness: use only when requested or required by the mission contract; pin model/config when supported and record unavailable configuration honestly.
 - `gh`: fallback only when gh-axi lacks the required operation, following repository instructions.
 
 ## Initialization rule

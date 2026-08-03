@@ -42,6 +42,10 @@ const AVAILABLE_SKILLS = [
     description: 'Real Chrome navigation, interaction, console/network inspection, screenshots, and performance checks',
   },
   {
+    name: 'commandcode-design',
+    description: 'Harness-neutral frontend design partner with Command Code-style audit, composition, state, and refinement modes',
+  },
+  {
     name: 'wayfinder',
     description: 'Map large work into decisions, tickets, dependencies, and an explicit delivery handoff',
   },
