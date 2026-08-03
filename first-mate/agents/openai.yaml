@@ -1,0 +1,4 @@
+interface:
+  display_name: "First Mate"
+  short_description: "Captain complex work with parallel agent crews"
+  default_prompt: "Use $first-mate to research, plan, delegate, integrate, and verify this multi-part mission."

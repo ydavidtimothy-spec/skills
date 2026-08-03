@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "repository": "ydavidtimothy-spec/skills",
+  "installRoots": [
+    ".agents/skills",
+    ".claude/skills",
+    ".opencode/skills"
+  ],
+  "workflow": [
+    "wayfinder",
+    "to-spec",
+    "to-tickets",
+    "implement",
+    "code-review"
+  ],
+  "skills": {
+    "first-mate": {
+      "kind": "coordination",
+      "portable": false,
+      "profile": "alpha-jiujitsu",
+      "dependencies": ["chrome-devtools-axi", "gh-axi"]
+    },
+    "chrome-devtools-axi": {
+      "kind": "adapter",
+      "portable": true,
+      "runtime": "npx -y chrome-devtools-axi <command>",
+      "source": "kunchenguid/chrome-devtools-axi"
+    },
+    "wayfinder": {
+      "kind": "planning",
+      "portable": true,
+      "dependencies": ["grilling", "domain-modeling", "to-spec", "to-tickets", "implement", "code-review"]
+    },
+    "to-spec": {
+      "kind": "planning",
+      "portable": true,
+      "dependencies": ["setup-matt-pocock-skills"]
+    },
+    "to-tickets": {
+      "kind": "planning",
+      "portable": true,
+      "dependencies": ["setup-matt-pocock-skills", "implement"]
+    },
+    "implement": {
+      "kind": "execution",
+      "portable": true,
+      "dependencies": ["tdd", "code-review"]
+    },
+    "code-review": {
+      "kind": "verification",
+      "portable": true,
+      "dependencies": ["setup-matt-pocock-skills"]
+    },
+    "gh-axi": {
+      "kind": "adapter",
+      "portable": true,
+      "runtime": "gh auth login"
+    },
+    "setup-matt-pocock-skills": {
+      "kind": "repository-setup",
+      "portable": true
+    },
+    "tdd": {
+      "kind": "quality",
+      "portable": true
+    },
+    "grilling": {
+      "kind": "decision-making",
+      "portable": true
+    },
+    "domain-modeling": {
+      "kind": "decision-making",
+      "portable": true
+    }
+  },
+  "notes": [
+    "The First Mate project-local Codex hook is intentionally not auto-installed by the skill CLI; hooks require explicit project trust and review.",
+    "The Alpha Jiu Jitsu .codex hook can be packaged later as an optional project profile.",
+    "Third-party adapters retain their upstream attribution in their skill front matter."
+  ]
+}

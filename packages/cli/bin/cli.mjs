@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(readFileSync(join(__dirname, '..', 'package.json'), 'utf-8'));
 
-const SKILLS_REPO = 'https://raw.githubusercontent.com/ydavidtimothy-spec/skills/main';
+const SKILLS_REPO = 'https://raw.githubusercontent.com/ydavidtimothy-spec/skills/master';
 
 const AGENT_DIRS = {
   '.opencode/skills': '.opencode/skills',
@@ -32,6 +32,54 @@ const AVAILABLE_SKILLS = [
   {
     name: 'write-a-skill',
     description: 'Create new agent skills with proper structure and progressive disclosure',
+  },
+  {
+    name: 'first-mate',
+    description: 'Captain-facing coordination, bounded crews, delivery authority, AXI initialization, and evidence-based handoff',
+  },
+  {
+    name: 'chrome-devtools-axi',
+    description: 'Real Chrome navigation, interaction, console/network inspection, screenshots, and performance checks',
+  },
+  {
+    name: 'wayfinder',
+    description: 'Map large work into decisions, tickets, dependencies, and an explicit delivery handoff',
+  },
+  {
+    name: 'to-spec',
+    description: 'Synthesize a conversation into a tracker-ready specification',
+  },
+  {
+    name: 'to-tickets',
+    description: 'Turn a spec into vertical tracer-bullet tickets with blocking edges',
+  },
+  {
+    name: 'implement',
+    description: 'Implement one approved spec or ticket, run checks, and hand off to review',
+  },
+  {
+    name: 'code-review',
+    description: 'Review a fixed-point diff on separate Standards and Spec axes',
+  },
+  {
+    name: 'gh-axi',
+    description: 'Operate GitHub through the compact gh-axi interface',
+  },
+  {
+    name: 'setup-matt-pocock-skills',
+    description: 'Configure tracker, triage labels, and domain-doc conventions',
+  },
+  {
+    name: 'tdd',
+    description: 'Behavior-first red-green-refactor workflow',
+  },
+  {
+    name: 'grilling',
+    description: 'Resolve design decisions through one-question-at-a-time discussion',
+  },
+  {
+    name: 'domain-modeling',
+    description: 'Maintain project vocabulary, context, and architectural decisions',
   },
 ];
 
