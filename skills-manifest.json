@@ -76,6 +76,13 @@
     "domain-modeling": {
       "kind": "decision-making",
       "portable": true
+    },
+    "data-flow-diagrams": {
+      "kind": "architecture-diagramming",
+      "portable": true,
+      "version": "2.7.0",
+      "author": "David Timothy Yoro",
+      "description": "The Lavish Rules standard for generating clean, non-overflowing data flow & architecture diagrams in Mermaid and pure SVG."
     }
   },
   "notes": [
